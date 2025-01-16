@@ -1,10 +1,19 @@
-let title = document.querySelector("h1");
-title.innerHTML = "Jogo do número secreto";
+let screctNumber = generateRadomNumber();
 
-let paragraph = document.querySelector("p");
-paragraph.innerHTML = "Escolha um número entre 1 e 10:";
+showTextOnScreen("h1","Jogo do número secreto");
 
+showTextOnScreen("p","Escolha um número entre 1 e 10:");
+
+function showTextOnScreen(tag, text) {
+  let element = document.querySelector(tag);
+  element.innerHTML = text;
+}
 
 function verifyAttempt() {
-  console.log("aqui");
+  let attempt = document.querySelector("input").value;
+  console.log(attempt == screctNumber);
+}
+
+function generateRadomNumber() {
+  return parseInt(Math.random() * 10 +1);
 }
